@@ -17,11 +17,11 @@
             _: { get: function() { this._______.push(0); return this } },
             __: { get: function() { this._______.push(1); return this } },
             ___: { get: function() {
-                var ord = this._______.reduce(function(c, n, i) {
-                    return (n << i) | c;
-                }, 0);
                 this._______ = [];
-                this.________ += String.fromCharCode(ord);
+                this.________ += String.fromCharCode(
+                    this._______.reduce(function(c, n, i) {
+                        return (n << i) | c;
+                    }, 0));
                 return this;
             }},
             ____: { get: function() { return this.________ }},
