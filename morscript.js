@@ -17,16 +17,16 @@
             _: { get: function() { this._______.push(0); return this } },
             __: { get: function() { this._______.push(1); return this } },
             ___: { get: function() {
-                this._______ = [];
                 this.________ += String.fromCharCode(
                     this._______.reduce(function(c, n, i) {
                         return (n << i) | c;
                     }, 0));
+                this._______ = [];
                 return this;
             }},
             ____: { get: function() { return this.________ }},
             _____: { get: function() { return eval(this.____) }},
-            ______: { value: function(s, r) {
+            ______: { value: function(s, e, r) {
                 return '_.' + [].slice.call(s)
                     .map(function(c) { return c.charCodeAt(0) })
                     .map(function(n) {
@@ -34,7 +34,7 @@
                         for (; n; n >>>= 1) a.push(n & 1 ? '__' : '_');
                         return a.join('.') + '.___' + (r || '');
                     })
-                    .join('.') + '.____';
+                    .join('.') + '.____' + (e ? '_' : '');
             }},
             _______: { value: [], writable: true },
             ________: { value: '', writable: true },
