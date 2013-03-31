@@ -34,7 +34,7 @@
                         for (; n; n >>>= 1) a.push(n & 1 ? '__' : '_');
                         return a.join('.') + '.___' + (r || '');
                     })
-                    .join('.') + '.____' + (e ? '_' : '');
+                    .concat(['____' + (e ? '_' : '')]).join('.');
             }},
             _______: { value: [], writable: true },
             ________: { value: '', writable: true },
